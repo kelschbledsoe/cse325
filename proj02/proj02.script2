@@ -1,0 +1,25 @@
+#!/bin/tcsh -f
+# Gabby Kelsch Bledsoe
+# Project 2
+# C shell script to produce Report 2
+
+
+echo "\n"
+echo "Report 2: Census units within a specified county for multiple counties"
+echo "\n"
+cat /user/cse325/Projects/project02.headers
+
+# This gets the census units in the list of specified counties
+# For each county, sorts by population then alphabetically
+
+# Count variable to only print two new lines between reports but not after the last
+set count = 1
+# For loop over each argument given
+foreach fname ($argv[*]:q)
+  grep -i -w "| $fname" /user/cse325/Projects/project02.data | sort -t '|' -k3n -k1,1
+# If statement so only print two new lines between reports, not after the last
+  if ($count != $#argv) then
+    echo "\n\n"
+  endif
+  @ count++
+end

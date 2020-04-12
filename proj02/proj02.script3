@@ -1,0 +1,26 @@
+#!/bin/tcsh -f
+# Gabby Kelsch Bledsoe
+# Project 2
+# C shell script to produce Report 3
+
+# Results from grading after submission: scripts 3 and 4 fail on input 10 A. When
+# developing the script, thought it didn't output anything because the dataset
+# was super large and just took too long to run the program. Maybe it was
+# actually an infinite loop. Need to investigate later.
+
+echo "\n"
+echo "Report 3: N Census Units with the Largest Populations"
+echo "\n"
+cat /user/cse325/Projects/project02.headers
+
+# Census units for cities
+if ($argv[2] == 'C') then
+  grep -i -w "city" /user/cse325/Projects/project02.data | sort -t '|' -k3nr -k1,1 | head -$argv[1]
+# Census units for townships
+else if ($argv[2] == 'T') then
+  grep -i -w "township" /user/cse325/Projects/project02.data | sort -t '|' -k3nr -k1,1 | head -$argv[1]
+# Census units for all places
+else if ($argv[2] == 'A') then
+  grep /user/cse325/Projects/project02.data | sort -t '|' -k3nr -k1,1 | head -$argv[1]
+endif
+

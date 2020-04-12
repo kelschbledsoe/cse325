@@ -1,0 +1,16 @@
+date
+
+cwd
+  date
+cd
+cd /user/cse325
+cd Projects
+cd ~cse325
+cd ~
+set NEWVAR whatever
+env
+set MAIL
+env
+ls -al /user/cse325/Projects
+ps -ef | grep cse325
+exit

@@ -1,0 +1,3 @@
+set NEWVAR cool
+env
+exit

@@ -1,0 +1,3 @@
+set WHATEVER whatever
+env
+exit

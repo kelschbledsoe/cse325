@@ -1,0 +1,16 @@
+#!/bin/tcsh -f
+# Gabby Kelsch Bledsoe
+# Project 2
+# C shell script to produce Report 1
+
+
+echo "\n"
+echo "Report 1: Census units within a specified county"
+echo "\n"
+cat /user/cse325/Projects/project02.headers
+
+# This gets the census units in the specified county
+# Then sorts by population then alphabetically
+grep -i -w "| $argv[1]" /user/cse325/Projects/project02.data | sort -t '|' -k3n -k1,1
+
+
